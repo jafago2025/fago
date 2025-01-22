@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thinker - 思维模型分析工具</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2><i class="fas fa-brain"></i> Thinker</h2>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="搜索已保存的分析...">
+            <i class="fas fa-search"></i>
+        </div>
+        <select id="model-select">
+            <option value="">选择思维模型...</option>
+            <option value="5W2H">5W2H分析法</option>
+            <option value="PEST">PEST分析</option>
+            <option value="SWOT">SWOT分析</option>
+            <option value="5WHY">5Why思考法</option>
+            <option value="PMI">PMI思维</option>
+            <option value="ORID">ORID模型</option>
+            <option value="DECISION_TREE">决策树模型</option>
+            <option value="SIX_HATS">六顶思考帽</option>
+            <option value="TEN_TEN_TEN">10/10/10法则</option>
+            <option value="PARETO">帕累托法则</option>
+            <option value="REVERSE">逆向思维</option>
+            <option value="GOLDEN_CIRCLE">黄金圈法则</option>
+            <option value="SYSTEM_REVIEW">系统回顾思维</option>
+            <option value="MAGNIFIER">放大镜思维</option>
+            <option value="SCAMPER">SCAMPER创新思维</option>
+            <option value="SMART">SMART目标法</option>
+            <option value="MINDMAP">思维导图</option>
+            <option value="PDCA">PDCA循环</option>
+            <option value="TRIZ">TRIZ创新理论</option>
+            <option value="GROW">GROW教练模型</option>
+        </select>
+        <div id="model-description" class="model-description"></div>
+        <div class="saved-analyses">
+            <h3><i class="fas fa-save"></i> 已保存的分析</h3>
+            <div id="saved-list"></div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div id="steps-container"></div>
+        <div class="button-group">
+            <button class="primary" onclick="saveAnalysis()">
+                <i class="fas fa-save"></i> 保存分析
+            </button>
+            <button class="secondary" onclick="exportToPDF()">
+                <i class="fas fa-file-pdf"></i> 导出PDF
+            </button>
+            <button class="secondary" onclick="exportToWord()">
+                <i class="fas fa-file-word"></i> 导出Word
+            </button>
+            <button class="accent" onclick="shareAnalysis()">
+                <i class="fas fa-share-alt"></i> 分享
+            </button>
+        </div>
+    </div>
+
+    <div class="auto-save-indicator" id="auto-save-indicator">
+        <i class="fas fa-check-circle"></i> 已自动保存
+    </div>
+
+    <div class="modal" id="share-modal">
+        <div class="modal-content">
+            <h3><i class="fas fa-share-alt"></i> 分享分析</h3>
+            <div class="share-link" id="share-link"></div>
+            <div class="button-group">
+                <button class="primary" onclick="copyShareLink()">
+                    <i class="fas fa-copy"></i> 复制链接
+                </button>
+                <button class="secondary" onclick="closeModal('share-modal')">
+                    <i class="fas fa-times"></i> 关闭
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
